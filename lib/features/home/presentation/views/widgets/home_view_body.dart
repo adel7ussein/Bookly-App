@@ -1,7 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../../../core/utils/assets.dart';
 import 'custom_app_bar.dart';
@@ -24,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
           ),
           Text(
             'Best Seller',
-            style: Styles.titleMedium,
+            style: Styles.textStyle18,
           ),
           BestSellerListViewItem()
         ],
@@ -43,7 +41,7 @@ class BestSellerListViewItem extends StatelessWidget {
       child: Row(
         children: [
           AspectRatio(
-            aspectRatio: 2.5/ 4,
+            aspectRatio: 2.5 / 4,
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.red,
