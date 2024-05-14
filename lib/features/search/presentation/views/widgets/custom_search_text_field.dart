@@ -7,6 +7,9 @@ class CustomSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onTapOutside: (event) {
+        FocusManager.instance.primaryFocus!.unfocus();
+      },
       decoration: InputDecoration(
           enabledBorder: buildOutlineInputBorder(borderColor: Colors.white),
           focusedBorder: buildOutlineInputBorder(borderColor: Colors.white),
@@ -23,7 +26,7 @@ class CustomSearchTextField extends StatelessWidget {
 
   OutlineInputBorder buildOutlineInputBorder({required Color borderColor}) {
     return OutlineInputBorder(
-        borderSide:  BorderSide(color: borderColor),
+        borderSide: BorderSide(color: borderColor),
         borderRadius: BorderRadius.circular(12));
   }
 }
