@@ -8,7 +8,7 @@ import '../../features/splash/presentation/views/splash_view.dart';
 abstract class AppRouter {
   static const kHomeView = '/homeView';
   static const kBookDetailsView = '/bookDetailsView';
-  static const kSearchView = '/homeView';
+  static const kSearchView = '/SearchView';
 
 
   static final router = GoRouter(
