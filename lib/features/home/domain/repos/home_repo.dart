@@ -1,8 +1,10 @@
 import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
+import 'package:either_dart/either.dart';
 
-abstract class HomeRepo{
-  Future<List<BookEntity>>fetchFeaturedBooks();
+import '../../../../core/errors/failure.dart';
 
-  Future<List<BookEntity>>fetchNewestBooks();
+abstract class HomeRepo {
+  Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks();
 
+  Future<Either<Failure, List<BookEntity>>> fetchNewestBooks();
 }
