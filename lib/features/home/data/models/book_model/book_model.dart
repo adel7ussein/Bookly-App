@@ -7,7 +7,7 @@ import 'volume_info.dart';
 
 class BookModel extends BookEntity{
   String? kind;
-  String? id;
+  String id;
   String? etag;
   String? selfLink;
   VolumeInfo? volumeInfo;
@@ -17,7 +17,7 @@ class BookModel extends BookEntity{
 
   BookModel({
     this.kind,
-    this.id,
+    required this.id,
     this.etag,
     this.selfLink,
     this.volumeInfo,
@@ -28,7 +28,7 @@ class BookModel extends BookEntity{
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
         kind: json['kind'] as String?,
-        id: json['id'] as String?,
+        id: json['id'] as String,
         etag: json['etag'] as String?,
         selfLink: json['selfLink'] as String?,
         volumeInfo: json['volumeInfo'] == null
