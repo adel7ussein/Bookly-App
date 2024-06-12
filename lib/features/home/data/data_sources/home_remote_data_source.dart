@@ -21,7 +21,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         endPoint: 'volumes?Filtering=free-ebooks&q=programming');
     List<BookEntity> books = getBooksList(data);
 
-   //Storing data in local data base
+   //cache featured books
    saveBooksData(books,kFeaturedBox);
     return books;
   }
@@ -42,6 +42,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     for (var bookMap in data['items']) {
       books.add(BookModel.fromJson(bookMap));
     }
+    //cache newest books
+    saveBooksData(books, kNewestBox);
     return books;
   }
 }
