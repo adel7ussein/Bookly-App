@@ -5,9 +5,11 @@ import 'package:bookly_app/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
+import '../data_sources/home_remote_data_source.dart';
+
 class HomeRepoImpl extends HomeRepo {
   final HomeRemoteDataSource homeRemoteDataSource;
-  final HomeRemoteDataSource homLocalDataSource;
+  final HomeLocalDataSource homLocalDataSource;
 
   HomeRepoImpl(
       {required this.homeRemoteDataSource, required this.homLocalDataSource});
@@ -20,7 +22,7 @@ class HomeRepoImpl extends HomeRepo {
       if (books.isNotEmpty) {
         return right(books);
       }
-      books = homeRemoteDataSource.fetchFeaturedBooks();
+      books = await homeRemoteDataSource.fetchFeaturedBooks();
       return right(books);
     } on Exception catch (e) {
       if (e is DioException) {
@@ -39,7 +41,7 @@ class HomeRepoImpl extends HomeRepo {
       if (books.isNotEmpty) {
         return right(books);
       }
-      books = homeRemoteDataSource.fetchNewestBooks();
+      books = await homeRemoteDataSource.fetchNewestBooks();
       return right(books);
     } on Exception catch (e) {
       if (e is DioException) {
